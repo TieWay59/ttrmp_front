@@ -37,22 +37,18 @@
         <q-chip>{{ creator }}</q-chip>
       </q-card-section>
       <q-card-section>
-        <q-markdown
-          :src="text"
-          toc
-        >
-
-        </q-markdown>
+<!--        TODO 有一些warning没有输排除    -->
+<!--        TODO 高亮功能不理想    -->
+        <v-md-editor mode="preview" v-model="text"></v-md-editor>
       </q-card-section>
     </q-card>
-
   </q-page>
 
 </template>
 
 <script>
 
-import {QMarkdown} from '@quasar/quasar-ui-qmarkdown'
+
 
 export default {
   name: "LearnPosts",
@@ -73,14 +69,9 @@ export default {
         this.text = res.data.postText;
         this.creator = res.data.postCreator;
       });
-  }, components: {
-    QMarkdown
   }
 }
 </script>
-<q-markdown>
-
-</q-markdown>
 
 <style lang="sass" scoped>
 .q-page

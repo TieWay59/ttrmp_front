@@ -1,8 +1,8 @@
 {
-  "name": "demo-1",
-  "version": "0.0.1",
-  "description": "demo-1",
-  "productName": "demo-1",
+  "name": "ttrmp_front",
+  "version": "0.0.2",
+  "description": "ttrmp_front",
+  "productName": "ttrmp_front",
   "author": "TieWay59 <tieway59@foxmail.com>",
   "private": true,
   "scripts": {
@@ -15,12 +15,15 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "core-js": "^3.6.5",
-    "quasar": "^1.0.0"
+    "quasar": "^1.0.0",
+    "vue-meditor": "^2.1.1"
   },
   "devDependencies": {
     "@kangc/v-md-editor": "^1.6.1",
     "@quasar/app": "^2.0.0",
-    "@quasar/quasar-ui-qmarkdown": "^1.4.1"
+    "@quasar/quasar-ui-qmarkdown": "^1.4.1",
+    "highlight.js": "^10.7.2",
+    "vue": "^2.6.12"
   },
   "browserslist": [
     "last 10 Chrome versions",
