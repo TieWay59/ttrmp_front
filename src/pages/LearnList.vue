@@ -17,18 +17,7 @@
       </q-card-section>
     </q-card>
 
-    <!--TODO 抽离banner组件-->
-    <q-card class="fit">
-      <q-card-section>
-        <q-img src="~assets/logo.png"/>
-      </q-card-section>
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
-      </q-card-section>
-    </q-card>
-
-
+    <logo-banner-large/>
 
     <q-card >
       <q-card-section>
@@ -69,8 +58,10 @@
 
 <script>
 
+import LogoBannerLarge from "components/LogoBannerLarge";
 export default {
-  name: "LearnList"
+  name: "LearnList",
+  components: {LogoBannerLarge}
 }
 </script>
 

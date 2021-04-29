@@ -1,5 +1,4 @@
 <template>
-
   <q-page class="full-width column">
     <q-card>
       <q-card-section>
@@ -37,18 +36,13 @@
         <q-chip>{{ creator }}</q-chip>
       </q-card-section>
       <q-card-section>
-<!--        TODO 有一些warning没有输排除    -->
-<!--        TODO 高亮功能不理想    -->
-        <v-md-editor mode="preview" v-model="text"></v-md-editor>
+        <v-md-editor v-if="text" mode="preview" v-model="text"></v-md-editor>
       </q-card-section>
     </q-card>
   </q-page>
-
 </template>
 
 <script>
-
-
 
 export default {
   name: "LearnPosts",

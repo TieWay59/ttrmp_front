@@ -16,7 +16,9 @@ const routes = [
           {path: 'posts/:id', component: () => import('pages/LearnPosts')}
         ]
       },
-      {path: '/calendar', component: () => import('pages/Calendar.vue')}
+      {path: '/calendar', component: () => import('pages/Calendar')},
+      {path: '/login', component: () => import('pages/Login')},
+      {path: '/register', component: () => import('pages/Register')}
     ]
   },
 

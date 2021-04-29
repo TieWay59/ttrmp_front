@@ -15,13 +15,14 @@
           ZJNU/ACM集训队资源站
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <user-avatar/>
       </q-toolbar>
     </q-header>
 
+    <!--    show-if-above -->
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
+
       :width="200"
       :breakpoint="500"
       overlay
@@ -51,13 +52,14 @@
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
+import UserAvatar from "components/UserAvatar";
 
 
 const linksData = [];
 
 export default {
   name: 'MainLayout',
-  components: {EssentialLink},
+  components: {UserAvatar, EssentialLink},
   data() {
     return {
       leftDrawerOpen: false,
@@ -71,13 +73,13 @@ export default {
           title: '学习资料',
           caption: '...',
           icon: 'school',
-          link:'/learn'
+          link: '/learn'
         },
         {
-          title: '训练日程',
+          title: '敬请期待 (未开放)',
           caption: '...',
           icon: 'book',
-          link: '/calendar'
+          link: '/index'
         }
       ]
     }
