@@ -1,25 +1,14 @@
 <template>
-  <q-page class="full-width column">
+  <q-page-customed>
     <q-card>
       <q-card-section>
-        <q-breadcrumbs class="text-brown">
-          <template v-slot:separator>
-            <q-icon
-              size="1.5em"
-              name="chevron_right"
-              color="primary"
-            />
-          </template>
-          <q-breadcrumbs-el label="Home" icon="home"/>
-          <q-breadcrumbs-el label="Components" icon="widgets"/>
-          <q-breadcrumbs-el label="Breadcrumbs" icon="navigation"/>
-        </q-breadcrumbs>
+        <q-breadcrumbs-customed :page_dir="page_dir"/>
       </q-card-section>
     </q-card>
 
     <logo-banner-large/>
 
-    <q-card >
+    <q-card>
       <q-card-section>
         <router-link to="/learn/posts/1"> goto posts-1</router-link>
       </q-card-section>
@@ -53,24 +42,28 @@
         …
       </q-card-section>
     </q-card>
-  </q-page>
+  </q-page-customed>
 </template>
 
 <script>
 
 import LogoBannerLarge from "components/LogoBannerLarge";
+import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
+import QPageCustomed from "components/QPageCustomed";
+
 export default {
   name: "LearnList",
-  components: {LogoBannerLarge}
+  data() {
+    return {
+      page_dir: [
+        {cap: "主页", url: "/index", icon: "home"},
+        {cap: "帖子", url: "/learn/posts", icon: "widgets"}
+      ]
+    }
+  },
+  components: {QPageCustomed, QBreadcrumbsCustomed, LogoBannerLarge}
 }
 </script>
 
-<!--TODO 设置padding的断点-->
 <style lang="sass" scoped>
-
-.q-page
-  padding: 0 20%
-  min-height: 110vh
-  .q-card
-    margin: .5rem
 </style>

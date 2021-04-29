@@ -1,5 +1,5 @@
 <template>
-  <q-breadcrumbs class="text-brown">
+  <q-breadcrumbs class="text-light-green">
     <template v-slot:separator>
       <q-icon
         size="1.5em"
@@ -7,9 +7,17 @@
         color="primary"
       />
     </template>
-    <q-breadcrumbs-el v-if="page_dir.length > 0" :label="page_dir[0]" icon="home"/>
-    <q-breadcrumbs-el v-if="page_dir.length > 1" :label="page_dir[1]" icon="widgets"/>
-    <q-breadcrumbs-el v-if="page_dir.length > 2" :label="page_dir[2]" icon="navigation"/>
+
+    <q-breadcrumbs-el v-for="p in page_dir">
+      <q-btn :label="p.cap"
+             :to="p.url"
+             :icon="p.icon"
+             flat
+             padding=".5em"
+             dense
+      >
+      </q-btn>
+    </q-breadcrumbs-el>
   </q-breadcrumbs>
 </template>
 

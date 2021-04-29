@@ -45,7 +45,11 @@ export default {
       date: null,
       text: null,
       creator: null,
-      page_dir: ["主页", "帖子", "当前页面"]
+      page_dir: [
+        {cap: "主页", url: "/index", icon: "home"},
+        {cap: "帖子", url: "/learn/posts", icon: "widgets"},
+        {cap: "当前页面", url: `/learn/posts/${this.$route.params.id}`, icon: "navigation"},
+      ]
     }
   },
   created() {
