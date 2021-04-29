@@ -2,18 +2,7 @@
   <q-page-customed>
     <q-card>
       <q-card-section>
-        <q-breadcrumbs class="text-brown">
-          <template v-slot:separator>
-            <q-icon
-              size="1.5em"
-              name="chevron_right"
-              color="primary"
-            />
-          </template>
-          <q-breadcrumbs-el label="Home" icon="home"/>
-          <q-breadcrumbs-el label="Components" icon="widgets"/>
-          <q-breadcrumbs-el label="Breadcrumbs" icon="navigation"/>
-        </q-breadcrumbs>
+        <q-breadcrumbs-customed :page_dir="page_dir"></q-breadcrumbs-customed>
       </q-card-section>
     </q-card>
 
@@ -45,15 +34,18 @@
 <script>
 
 import QPageCustomed from "components/QPageCustomed";
+import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
+
 export default {
   name: "LearnPosts",
-  components: {QPageCustomed},
+  components: {QBreadcrumbsCustomed, QPageCustomed},
   data() {
     return {
       title: null,
       date: null,
       text: null,
-      creator: null
+      creator: null,
+      page_dir: ["主页", "帖子", "当前页面"]
     }
   },
   created() {
