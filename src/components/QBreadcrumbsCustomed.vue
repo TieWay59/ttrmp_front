@@ -8,7 +8,9 @@
       />
     </template>
 
-    <q-breadcrumbs-el v-for="p in page_dir">
+    <q-breadcrumbs-el
+      v-for="p in page_dir"
+      :key="p.cap">
       <q-btn :label="p.cap"
              :to="p.url"
              :icon="p.icon"
