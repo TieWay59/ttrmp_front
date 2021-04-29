@@ -1,5 +1,5 @@
 <template>
-  <q-page class="full-width column">
+  <q-page-customed>
     <q-card>
       <q-card-section>
         <q-breadcrumbs class="text-brown">
@@ -39,13 +39,15 @@
         <v-md-editor v-if="text" mode="preview" v-model="text"></v-md-editor>
       </q-card-section>
     </q-card>
-  </q-page>
+  </q-page-customed>
 </template>
 
 <script>
 
+import QPageCustomed from "components/QPageCustomed";
 export default {
   name: "LearnPosts",
+  components: {QPageCustomed},
   data() {
     return {
       title: null,
@@ -68,11 +70,5 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.q-page
-  padding: 0 20%
-  min-height: 110vh
-
-  .q-card
-    margin: .5rem
 </style>
 
