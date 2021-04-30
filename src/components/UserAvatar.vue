@@ -12,7 +12,7 @@
     </q-item-section>
 
     <q-item-section v-if="avatarState">
-      <q-item-label>Tieway59</q-item-label>
+      <q-item-label>伍泰炜</q-item-label>
       <q-item-label caption>Administrator</q-item-label>
     </q-item-section>
     <q-item-section v-else>
