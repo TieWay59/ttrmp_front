@@ -1,14 +1,14 @@
 <template>
   <q-page-customed>
-    <q-card>
+    <q-card-customed>
       <q-card-section>
         <q-breadcrumbs-customed :page_dir="page_dir"></q-breadcrumbs-customed>
       </q-card-section>
-    </q-card>
+    </q-card-customed>
 
     <logo-banner-large/>
 
-    <q-card>
+    <q-card-customed>
       <q-card-section>
         <div class="text-h6">集训队简介</div>
       </q-card-section>
@@ -20,8 +20,7 @@
           {{ d }}
         </p>
       </q-card-section>
-    </q-card>
-    <br>
+    </q-card-customed>
 
   </q-page-customed>
 </template>
@@ -30,6 +29,7 @@
 import LogoBannerLarge from "components/LogoBannerLarge";
 import QPageCustomed from "components/QPageCustomed";
 import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
+import QCardCustomed from "components/QCardCustomed";
 
 export default {
   name: 'PageIndex',
@@ -45,7 +45,7 @@ export default {
       ],
     }
   },
-  components: {QBreadcrumbsCustomed, QPageCustomed, LogoBannerLarge}
+  components: {QCardCustomed, QBreadcrumbsCustomed, QPageCustomed, LogoBannerLarge}
 }
 </script>
 

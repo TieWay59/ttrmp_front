@@ -1,9 +1,7 @@
 <template>
   <q-page-customed>
-
     <logo-banner/>
-
-    <q-card class="row justify-center">
+    <q-card-customed class="row justify-center">
       <q-card-section class="col-12">
         <div class="text-h6">登录</div>
       </q-card-section>
@@ -32,17 +30,18 @@
         <q-btn push icon-right="help">忘记密码&nbsp;&nbsp;</q-btn>
       </q-card-section>
 
-    </q-card>
+    </q-card-customed>
   </q-page-customed>
 </template>
 
 <script>
 import LogoBanner from "components/LogoBanner";
 import QPageCustomed from "components/QPageCustomed";
+import QCardCustomed from "components/QCardCustomed";
 
 export default {
   name: "Login",
-  components: {QPageCustomed, LogoBanner},
+  components: {QCardCustomed, QPageCustomed, LogoBanner},
   data() {
     return {
       username: null,

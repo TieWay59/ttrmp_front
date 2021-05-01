@@ -1,5 +1,5 @@
 <template>
-  <q-page class="full-width column">
+  <q-page class="fit row wrap justify-center q-px-sm">
     <slot></slot>
   </q-page>
 </template>
@@ -10,12 +10,6 @@ export default {
 }
 </script>
 
-<!-- removed scoped-->
-<style lang="sass" >
-.q-page
-  padding: 0 20%
-  min-height: 110vh
+<style scoped>
 
-  .q-card
-    margin: .5rem
 </style>

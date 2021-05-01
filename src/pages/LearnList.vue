@@ -1,14 +1,14 @@
 <template>
   <q-page-customed>
-    <q-card>
+    <q-card-customed>
       <q-card-section>
         <q-breadcrumbs-customed :page_dir="page_dir"/>
       </q-card-section>
-    </q-card>
+    </q-card-customed>
 
     <logo-banner-large/>
 
-    <q-card>
+    <q-card-customed>
       <q-card-section>
         <div class="text-h6">学习资料清单</div>
       </q-card-section>
@@ -42,19 +42,21 @@
         </q-list>
       </q-card-section>
 
-      <q-card>
-        <q-card-section class="q-pa-lg flex flex-center">
-          <q-pagination
-            v-model="page_current"
-            :max="10"
-            :max-pages="6"
-            boundary-numbers
-            direction-links
-            push
-            color="primary"></q-pagination>
-        </q-card-section>
-      </q-card>
-    </q-card>
+    </q-card-customed>
+
+    <q-card-customed>
+      <q-card-section class="q-pa-lg flex flex-center">
+        <q-pagination
+          v-model="page_current"
+          :max="10"
+          :max-pages="6"
+          boundary-numbers
+          direction-links
+          push
+          color="primary"></q-pagination>
+      </q-card-section>
+    </q-card-customed>
+
   </q-page-customed>
 </template>
 
@@ -63,6 +65,7 @@
 import LogoBannerLarge from "components/LogoBannerLarge";
 import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
 import QPageCustomed from "components/QPageCustomed";
+import QCardCustomed from "components/QCardCustomed";
 
 export default {
   name: "LearnList",
@@ -136,7 +139,7 @@ export default {
       page_size: 8
     }
   },
-  components: {QPageCustomed, QBreadcrumbsCustomed, LogoBannerLarge},
+  components: {QCardCustomed, QPageCustomed, QBreadcrumbsCustomed, LogoBannerLarge},
   computed: {
     page_posts() {
       return this.posts.filter((_, i) => {

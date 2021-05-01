@@ -1,12 +1,12 @@
 <template>
   <q-page-customed>
-    <q-card>
+    <q-card-customed>
       <q-card-section>
         <q-breadcrumbs-customed :page_dir="page_dir"></q-breadcrumbs-customed>
       </q-card-section>
-    </q-card>
+    </q-card-customed>
 
-    <q-card>
+    <q-card-customed>
       <q-card-section>
         <q-video
           :ratio="16/9"
@@ -14,8 +14,8 @@
           style="height: 500px"
         />
       </q-card-section>
-    </q-card>
-    <q-card>
+    </q-card-customed>
+    <q-card-customed>
       <q-card-section>
         <div v-if="title" class="text-h6">{{ title }}</div>
         <q-skeleton v-else type="text" animation="pulse-y" width="150px"></q-skeleton>
@@ -23,26 +23,25 @@
       <q-separator/>
 
 
-      <q-card-section v-if="date">
-        <q-chip>{{ date }}</q-chip>
-      </q-card-section>
-      <q-card-section v-if="creator">
-        <q-chip>{{ creator }}</q-chip>
+      <q-card-section>
+        <q-chip v-if="date" square icon="event">{{ date }}</q-chip>
+        <q-chip v-if="time" square icon="schedule">{{ time }}</q-chip>
+        <q-chip v-if="creator" square icon="person"> {{ creator }}</q-chip>
       </q-card-section>
       <q-card-section>
         <v-md-editor v-if="text" mode="preview" v-model="text"></v-md-editor>
         <q-skeleton
           v-for="i in 3"
-          :key="i"
           v-else
+          :key="i"
           animation="pulse-y"
           class="q-my-sm"
           type="text"
         ></q-skeleton>
       </q-card-section>
-    </q-card>
+    </q-card-customed>
 
-    <q-card>
+    <q-card-customed>
       <!--      TODO 看起来不错的card图片-->
       <!--      <q-img :src="getPicUrl()"></q-img>-->
 
@@ -144,7 +143,7 @@
         </q-list>
       </q-card-section>
 
-    </q-card>
+    </q-card-customed>
   </q-page-customed>
 </template>
 
@@ -152,14 +151,17 @@
 
 import QPageCustomed from "components/QPageCustomed";
 import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
+import {date} from 'quasar';
+import QCardCustomed from "components/QCardCustomed";
 
 export default {
   name: "LearnPosts",
-  components: {QBreadcrumbsCustomed, QPageCustomed},
+  components: {QCardCustomed, QBreadcrumbsCustomed, QPageCustomed},
   data() {
     return {
       title: null,
       date: null,
+      time: null,
       text: null,
       creator: null,
       page_dir: [
@@ -240,12 +242,19 @@ export default {
       .get(`/api/post/${this.$route.params.id}`)
       .then(res => {
         this.title = res.data.postTitle;
-        this.date = res.data.postDate;
+        let td = date.extractDate(res.data.postDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ');
+        this.date = date.formatDate(td, 'YYYY-MM-DD');
+        this.time = date.formatDate(td, 'HH:mm:ss');
         this.text = res.data.postText;
-        this.creator = res.data.postCreator;
-      }).catch(() => {
-      this.title = "请求超时"
-    });
+        // this.creator = res.data.postCreator;
+        return this.$axios.get(`/api/user/` + res.data.postCreator);
+      })
+      .catch(() => {
+        this.title = "请求超时"
+      })
+      .then(res => {
+        this.creator = res.data.userName;
+      });
   }
 }
 </script>
