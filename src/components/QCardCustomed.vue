@@ -1,5 +1,5 @@
 <template>
-  <q-card class="col-xl-7 col-lg-8 col-md-9 col-sm-10 col-12 q-my-sm">
+  <q-card class="col-xl-7 col-lg-8 col-md-9 col-sm-10 col-12">
     <slot></slot>
   </q-card>
 </template>
