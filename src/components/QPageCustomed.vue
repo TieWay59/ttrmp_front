@@ -1,5 +1,5 @@
 <template>
-  <q-page class="fit row wrap justify-center q-px-sm">
+  <q-page class="fit row wrap justify-center items-start q-px-sm">
     <slot></slot>
   </q-page>
 </template>
