@@ -8,6 +8,20 @@
 
     <q-card-customed>
       <q-card-section>
+        <div v-if="title" class="text-h6">{{ title }}</div>
+        <q-skeleton v-else type="text" animation="pulse-y" width="150px"></q-skeleton>
+      </q-card-section>
+      <q-separator/>
+      <q-card-section class="q-pb-none">
+        <q-chip v-if="date" square icon="event">{{ date }}</q-chip>
+        <q-chip v-if="time" square icon="schedule">{{ time }}</q-chip>
+        <q-chip v-if="creator" square icon="person"> {{ creator }}</q-chip>
+      </q-card-section>
+      <q-chip-customed class="q-pt-none" :tag_item="post_tag_item"/>
+    </q-card-customed>
+
+    <q-card-customed>
+      <q-card-section>
         <q-video
           :ratio="16/9"
           src="//player.bilibili.com/player.html?bvid=BV1r4411B7wN"
@@ -15,21 +29,14 @@
         />
       </q-card-section>
     </q-card-customed>
+
     <q-card-customed>
-      <q-card-section>
-        <div v-if="title" class="text-h6">{{ title }}</div>
-        <q-skeleton v-else type="text" animation="pulse-y" width="150px"></q-skeleton>
-      </q-card-section>
-      <q-separator/>
-
-
-      <q-card-section>
-        <q-chip v-if="date" square icon="event">{{ date }}</q-chip>
-        <q-chip v-if="time" square icon="schedule">{{ time }}</q-chip>
-        <q-chip v-if="creator" square icon="person"> {{ creator }}</q-chip>
-      </q-card-section>
-      <q-card-section>
-        <v-md-editor v-if="text" mode="preview" v-model="text"></v-md-editor>
+      <q-card-section class="q-pt-none">
+        <v-md-editor
+          v-if="text"
+          v-model="text"
+          mode="preview"
+        ></v-md-editor>
         <q-skeleton
           v-for="i in 3"
           v-else
@@ -44,7 +51,6 @@
     <q-card-customed>
       <!--      TODO 看起来不错的card图片-->
       <!--      <q-img :src="getPicUrl()"></q-img>-->
-
       <q-card-section>
         <div v-if="title" class="text-h6">评论</div>
         <q-skeleton v-else type="text" animation="pulse-y" width="150px"></q-skeleton>
@@ -153,10 +159,11 @@ import QPageCustomed from "components/QPageCustomed";
 import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
 import {date} from 'quasar';
 import QCardCustomed from "components/QCardCustomed";
+import QChipCustomed from "pages/QChipCustomed";
 
 export default {
   name: "LearnPosts",
-  components: {QCardCustomed, QBreadcrumbsCustomed, QPageCustomed},
+  components: {QChipCustomed, QCardCustomed, QBreadcrumbsCustomed, QPageCustomed},
   data() {
     return {
       title: null,
@@ -214,6 +221,10 @@ export default {
         },
       ],
       comment_buffer: 'This post is nice.',
+      post_tag_item: [
+        {id: 1, name: "C++"},
+        {id: 6, name: "基础知识"},
+      ],
     }
   },
   methods: {
