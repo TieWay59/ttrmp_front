@@ -16,7 +16,7 @@
           clickable
         >
           <q-item-section avatar top>
-            <q-avatar icon="folder" color="primary" text-color="white"/>
+            <q-avatar icon="feed" color="primary" text-color="white"/>
           </q-item-section>
           <q-item-section>
             <q-item-label>
