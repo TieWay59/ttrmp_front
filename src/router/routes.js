@@ -18,7 +18,10 @@ const routes = [
       },
       {path: '/calendar', component: () => import('pages/Calendar')},
       {path: '/login', component: () => import('pages/Login')},
-      {path: '/register', component: () => import('pages/Register')}
+      {path: '/register', component: () => import('pages/Register')},
+      {
+        path: '/profile', component: () => import('pages/Profile'),
+      },
     ]
   },
 

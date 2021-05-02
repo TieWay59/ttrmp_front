@@ -22,7 +22,6 @@
     <!--    show-if-above -->
     <q-drawer
       v-model="leftDrawerOpen"
-
       :width="200"
       :breakpoint="500"
       overlay
@@ -63,12 +62,13 @@ export default {
   data() {
     return {
       leftDrawerOpen: false,
-      essentialLinks: [{
-        title: '主页',
-        caption: '信息系统主页',
-        icon: 'home',
-        link: '/index'
-      },
+      essentialLinks: [
+        {
+          title: '主页',
+          caption: '信息系统主页',
+          icon: 'home',
+          link: '/index'
+        },
         {
           title: '学习资料',
           caption: '...',
@@ -76,10 +76,16 @@ export default {
           link: '/learn'
         },
         {
+          title: '个人中心',
+          caption: '...',
+          icon: 'face',
+          link: '/profile'
+        },
+        {
           title: '敬请期待 (未开放)',
           caption: '...',
           icon: 'book',
-          link: '/index'
+          link: '/calendar'
         }
       ]
     }
