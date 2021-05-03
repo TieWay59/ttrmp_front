@@ -21,6 +21,7 @@ const routes = [
       {path: '/register', component: () => import('pages/Register')},
       {path: '/profile', component: () => import('pages/ProfileIndex')},
       {path: '/profile/info', component: () => import('pages/ProfileInfo')},
+      {path: '/profile/posts', component: () => import('pages/ProfilePosts')},
     ]
   },
 

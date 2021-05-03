@@ -11,9 +11,9 @@
         <q-item
           v-for="post in page_posts"
           :key="post.id"
-          :to='"/learn/posts/"+post.id'
-          v-ripple
-          clickable
+          :to='is_clickable? ("/learn/posts/"+post.id): null'
+          :v-ripple="is_clickable"
+          :clickable="is_clickable"
         >
           <q-item-section avatar top>
             <q-avatar icon="feed" color="primary" text-color="white"/>
@@ -26,6 +26,8 @@
               {{ post.author ? post.author : "未知作者" }}
             </q-item-label>
           </q-item-section>
+
+          <slot name="button"></slot>
         </q-item>
       </q-list>
     </q-card-section>
@@ -142,6 +144,10 @@ export default {
     },
     page_size: {
       default: 8
+    },
+    is_clickable: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
