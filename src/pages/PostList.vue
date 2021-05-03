@@ -7,7 +7,7 @@
     <q-separator/>
 
     <q-card-section>
-      <q-list>
+      <q-list separator>
         <q-item
           v-for="post in page_posts"
           :key="post.id"

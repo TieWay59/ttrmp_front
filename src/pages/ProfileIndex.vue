@@ -1,11 +1,5 @@
 <template>
-  <q-page-customed>
-    <q-card-customed>
-      <q-card-section>
-        <q-breadcrumbs-customed :page_dir="page_dir"></q-breadcrumbs-customed>
-      </q-card-section>
-    </q-card-customed>
-
+  <profile-layout>
     <q-card-customed>
       <q-card-section horizontal>
         <q-card-section class="col-2">
@@ -45,29 +39,28 @@
         标签
       </q-card-section>
       <q-separator></q-separator>
-
       <q-chip-customed :tag_item="tag_item"/>
     </q-card-customed>
 
-  </q-page-customed>
+  </profile-layout>
 </template>
 
 
 <script>
-import QPageCustomed from "components/QPageCustomed";
+import ProfileLayout from "pages/ProfileLayout";
 import QCardCustomed from "components/QCardCustomed";
-import QBreadcrumbsCustomed from "components/QBreadcrumbsCustomed";
 import PostList from "pages/PostList";
 import QChipCustomed from "pages/QChipCustomed";
+import QPageCustomed from "components/QPageCustomed";
 
 export default {
   name: "Profile",
   data() {
     return {
-      page_dir: [
-        {cap: "主页", url: "/index", icon: "home"},
-        {cap: "个人中心", url: "/profile", icon: "face"},
-      ],
+      // page_dir: [
+      //   {cap: "主页", url: "/index", icon: "home"},
+      //   {cap: "个人中心", url: "/profile", icon: "account_box"},
+      // ],
       tag_item: [
         {id: 1, name: "C++"},
         {id: 2, name: "数论"},
@@ -79,7 +72,7 @@ export default {
       ]
     }
   },
-  components: {QChipCustomed, PostList, QBreadcrumbsCustomed, QCardCustomed, QPageCustomed}
+  components: {QPageCustomed, QChipCustomed, PostList, QCardCustomed, ProfileLayout}
 }
 </script>
 

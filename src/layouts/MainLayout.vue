@@ -33,7 +33,7 @@
           header
           class="text-grey-8"
         >
-          Essential Links
+          页面导航
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -78,7 +78,7 @@ export default {
         {
           title: '个人中心',
           caption: '...',
-          icon: 'face',
+          icon: 'account_box',
           link: '/profile'
         },
         {
