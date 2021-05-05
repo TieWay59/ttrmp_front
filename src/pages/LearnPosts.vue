@@ -20,13 +20,31 @@
       <q-chip-customed class="q-pt-none" :tag_item="post_tag_item"/>
     </q-card-customed>
 
+<!--    <q-card-customed>-->
+<!--      <q-card-section>-->
+<!--        <q-video-->
+<!--          :ratio="16/9"-->
+<!--          style="height: 500px" src="//player.bilibili.com/player.html?bvid=BV1r4411B7wN">-->
+<!--        </q-video>-->
+<!--      </q-card-section>-->
+<!--    </q-card-customed>-->
+
     <q-card-customed>
       <q-card-section>
-        <q-video
-          :ratio="16/9"
-          src="//player.bilibili.com/player.html?bvid=BV1r4411B7wN"
-          style="height: 500px"
-        />
+        <q-media-player
+          type="video"
+          background-color="black"
+          :muted="false"
+          radius=".3rem"
+          :autoplay="false"
+          :show-big-play-button="false"
+          :sources="video.sources"
+          :poster="video.poster"
+          :tracks="video.tracks"
+          track-language="English"
+          dense
+        >
+        </q-media-player>
       </q-card-section>
     </q-card-customed>
 
@@ -105,8 +123,6 @@
 
 
       <q-separator/>
-
-
       <q-card-section>
         <q-list>
           <q-item v-for="c in getComments" :key="c.id">
@@ -225,6 +241,15 @@ export default {
         {id: 1, name: "C++"},
         {id: 6, name: "基础知识"},
       ],
+      video: {
+        label: 'clip',
+        sources: [
+          {
+            src: require("assets/clip1.mp4"),
+            type: 'video/mp4'
+          }
+        ]
+      }
     }
   },
   methods: {
@@ -266,7 +291,8 @@ export default {
       .then(res => {
         this.creator = res.data.userName;
       });
-  }
+  },
+
 }
 </script>
 

@@ -22,8 +22,10 @@
   "devDependencies": {
     "@kangc/v-md-editor": "^1.6.1",
     "@quasar/app": "^2.0.0",
+    "@quasar/quasar-app-extension-qmediaplayer": "^1.2.1",
     "@quasar/quasar-ui-qmarkdown": "^1.4.1",
     "highlight.js": "^10.7.2",
+    "quasar-app-extension-ide-helper": "^1.0.0",
     "vue": "^2.6.12",
     "workbox-webpack-plugin": "^5.1.4"
   },
