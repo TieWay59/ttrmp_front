@@ -2,22 +2,27 @@
   <q-page-customed>
     <q-card-customed>
       <q-card-section class="row justify-between">
-        <q-breadcrumbs-customed class="col-10" :page_dir="page_dir"></q-breadcrumbs-customed>
+        <q-breadcrumbs-customed
+          class="col-10"
+          :page_dir="page_dir"></q-breadcrumbs-customed>
         <q-btn
-          label="编辑"
+          label="保存"
           flat
           color="primary"
-          icon="edit"
-          :to='`/learn/posts/edit/${this.$route.params.id}`'
+          icon="save"
         >
+          <q-badge color="red" rounded floating
+            label="!"
+          >
+          </q-badge>
         </q-btn>
       </q-card-section>
     </q-card-customed>
 
     <q-card-customed>
       <q-card-section>
-        <div v-if="title" class="text-h6">{{ title }}</div>
-        <q-skeleton v-else type="text" animation="pulse-y" width="150px"></q-skeleton>
+        <q-input outlined dense v-model="title">
+        </q-input>
       </q-card-section>
       <q-separator/>
       <q-card-section class="q-pb-none">
@@ -25,7 +30,7 @@
         <q-chip v-if="time" square icon="schedule">{{ time }}</q-chip>
         <q-chip v-if="creator" square icon="person"> {{ creator }}</q-chip>
       </q-card-section>
-      <q-chip-customed class="q-pt-none" :tag_item="post_tag_item"/>
+      <q-chip-customed class="q-pt-none" :tag_item="post_tag_item" :removable="true"/>
     </q-card-customed>
 
     <!--    <q-card-customed>-->
@@ -39,6 +44,17 @@
 
     <q-card-customed>
       <q-card-section>
+        <q-uploader
+          label="上传新视频"
+          flat
+          color="white"
+          text-color="dark"
+          url="http://localhost:4444/upload"
+          class="full-width"
+        />
+      </q-card-section>
+      <q-card-section>
+
         <q-media-player
           type="video"
           background-color="black"
@@ -57,124 +73,16 @@
     </q-card-customed>
 
     <q-card-customed>
-      <q-card-section class="q-pt-none">
+      <q-card-section>
         <v-md-editor
-          v-if="text"
           v-model="text"
-          mode="preview"
+          mode="edit"
         ></v-md-editor>
-        <q-skeleton
-          v-for="i in 3"
-          v-else
-          :key="i"
-          animation="pulse-y"
-          class="q-my-sm"
-          type="text"
-        ></q-skeleton>
       </q-card-section>
     </q-card-customed>
 
-    <q-card-customed>
-      <!--      TODO 看起来不错的card图片-->
-      <!--      <q-img :src="getPicUrl()"></q-img>-->
-      <q-card-section>
-        <div v-if="title" class="text-h6">评论</div>
-        <q-skeleton v-else type="text" animation="pulse-y" width="150px"></q-skeleton>
-      </q-card-section>
-
-      <q-separator></q-separator>
-
-      <q-card-section>
-        <q-item>
-          <q-item-section avatar top>
-            <q-avatar rounded size="xl">
-              <q-img
-                src="https://cdn.quasar.dev/img/boy-avatar.png"
-                ratio="1"
-                transition="rotate"
-              >
-                <template v-slot:loading>
-                  <q-spinner-gears color="white" size="sm"/>
-                </template>
-              </q-img>
-            </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>
-                <span class="text-h6">
-                  伍泰炜
-                </span>
-              <q-badge
-                color="secondary"
-                rounded
-                class="no-border"
-              >
-                <q-icon name="manage_accounts"></q-icon>
-                管理员
-              </q-badge>
-            </q-item-label>
-            <q-item-label class="q-py-sm">
-              <q-editor v-model:value="comment_buffer"></q-editor>
-            </q-item-label>
-            <q-item-section side>
-              <q-btn
-                color="primary"
-                label="评论"
-                outline
-                size="sm"
-                @click="appendComment()"
-              ></q-btn>
-            </q-item-section>
-          </q-item-section>
-        </q-item>
-      </q-card-section>
-
-
-      <q-separator/>
-      <q-card-section>
-        <q-list>
-          <q-item v-for="c in getComments" :key="c.id">
-            <q-item-section avatar top>
-              <q-avatar rounded size="xl">
-                <q-img
-                  :src="c.src? c.src : getPicUrl()"
-                  ratio="1"
-                  transition="rotate"
-                >
-                  <template v-slot:loading>
-                    <q-spinner-gears color="white" size="sm"/>
-                  </template>
-                </q-img>
-              </q-avatar>
-            </q-item-section>
-            <q-item-section>
-              <q-item-label>
-                <span class="text-h6">
-                  {{ c.username }}
-                </span>
-                <q-badge
-                  v-if="c.role==='admin'"
-                  color="secondary"
-                  rounded
-                  class="no-border"
-                >
-                  <q-icon name="manage_accounts"></q-icon>
-                  管理员
-                </q-badge>
-              </q-item-label>
-              <q-item-label class="q-py-sm">
-                {{ c.context }}
-              </q-item-label>
-              <q-item-section side>
-                <q-btn label="回复" color="primary" outline size="sm"></q-btn>
-              </q-item-section>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </q-card-section>
-
-    </q-card-customed>
   </q-page-customed>
+
 </template>
 
 <script>
@@ -186,7 +94,7 @@ import QCardCustomed from "components/QCardCustomed";
 import QChipCustomed from "pages/QChipCustomed";
 
 export default {
-  name: "LearnPosts",
+  name: "LearnPostsEdit",
   components: {QChipCustomed, QCardCustomed, QBreadcrumbsCustomed, QPageCustomed},
   data() {
     return {
@@ -198,7 +106,7 @@ export default {
       page_dir: [
         {cap: "主页", url: "/index", icon: "home"},
         {cap: "帖子", url: "/learn/posts", icon: "widgets"},
-        {cap: "当前页面", url: `/learn/posts/${this.$route.params.id}`, icon: "navigation"},
+        {cap: "编辑文章", url: `/learn/posts/${this.$route.params.id}`, icon: "edit"},
       ],
       comments: [
         {id: 1, username: 'tieway59', role: 'admin', context: 'Hello?'},
@@ -302,6 +210,6 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-</style>
+<style scoped>
 
+</style>

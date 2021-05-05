@@ -13,7 +13,8 @@ const routes = [
         children: [
           {path: '', redirect: 'posts'},
           {path: 'posts', component: () => import('pages/LearnList')},
-          {path: 'posts/:id', component: () => import('pages/LearnPosts')}
+          {path: 'posts/:id', component: () => import('pages/LearnPosts')},
+          {path: 'posts/edit/:id', component: () => import('pages/LearnPostsEdit')}
         ]
       },
       {path: '/calendar', component: () => import('pages/Calendar')},
