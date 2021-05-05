@@ -1,52 +1,62 @@
 <template>
-  <q-layout view="hHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
+  <q-scroll-area
+    :thumb-style="{
+        right: '4px',
+        borderRadius: '2px',
+        width: '2px',
+        opacity: 0.25
+      }"
+    style="height: 100vh"
+  >
+    <q-layout view="hHh Lpr lFf">
+      <q-header elevated>
+        <q-toolbar>
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menu"
+            @click="leftDrawerOpen = !leftDrawerOpen"
+          />
 
-        <q-toolbar-title>
-          ZJNU/ACM集训队资源站
-        </q-toolbar-title>
+          <q-toolbar-title>
+            ZJNU/ACM集训队资源站
+          </q-toolbar-title>
 
-        <user-avatar/>
-      </q-toolbar>
-    </q-header>
+          <user-avatar/>
+        </q-toolbar>
+      </q-header>
 
-    <!--    show-if-above -->
-    <q-drawer
-      v-model="leftDrawerOpen"
-      :width="200"
-      :breakpoint="500"
-      overlay
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          页面导航
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
+      <!--    show-if-above -->
+      <q-drawer
+        v-model="leftDrawerOpen"
+        :width="200"
+        :breakpoint="500"
+        overlay
+        bordered
+        content-class="bg-grey-1"
+      >
+        <q-list>
+          <q-item-label
+            header
+            class="text-grey-8"
+          >
+            页面导航
+          </q-item-label>
+          <EssentialLink
+            v-for="link in essentialLinks"
+            :key="link.title"
+            v-bind="link"
+          />
+        </q-list>
+      </q-drawer>
 
-    <q-page-container>
-      <router-view/>
-    </q-page-container>
-  </q-layout>
+      <q-page-container>
+        <router-view/>
+      </q-page-container>
+    </q-layout>
+  </q-scroll-area>
 </template>
 
 <script>
