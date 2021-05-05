@@ -9,7 +9,7 @@
     style="height: 100vh"
   >
     <q-layout view="hHh Lpr lFf">
-      <q-header elevated>
+      <q-header elevated reveal>
         <q-toolbar>
           <q-btn
             flat
@@ -19,7 +19,6 @@
             aria-label="Menu"
             @click="leftDrawerOpen = !leftDrawerOpen"
           />
-
           <q-toolbar-title>
             ZJNU/ACM集训队资源站
           </q-toolbar-title>
