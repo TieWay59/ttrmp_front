@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card-customed>
     <q-item>
       <q-item-section side>
         <q-avatar rounded size="100px">
@@ -11,12 +11,14 @@
         <q-item-label caption>浙江师范大学ACM集训基地资源管理平台</q-item-label>
       </q-item-section>
     </q-item>
-  </q-card>
+  </q-card-customed>
 </template>
 
 <script>
+import QCardCustomed from "components/QCardCustomed";
 export default {
-  name: "LogoBanner"
+  name: "LogoBanner",
+  components: {QCardCustomed}
 }
 </script>
 
