@@ -33,7 +33,7 @@ export default {
         {icon: "account_box", label: "个人中心", to: "/profile"},
         {icon: "info", label: "信息维护", to: "/profile/info"},
         {icon: "feed", label: "文章管理", to: "/profile/posts"},
-        {icon: "rate_review", label: "评论管理", to: "/"},
+        {icon: "rate_review", label: "评论管理", to: "/profile/comment"},
         {icon: "folder", label: "文件管理", to: "/"}
       ]
     }
