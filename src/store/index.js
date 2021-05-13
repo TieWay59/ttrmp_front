@@ -16,8 +16,18 @@ Vue.use(Vuex)
 
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
-    modules: {
-      // example
+    // modules: {
+    //   // example
+    // },
+    state: {
+      isLogin: false,
+      username: '伍泰炜',
+      passward: '123456'
+    },
+    mutations: {
+      login_out(state) {
+        state.isLogin = !state.isLogin;
+      }
     },
 
     // enable strict mode (adds overhead!)

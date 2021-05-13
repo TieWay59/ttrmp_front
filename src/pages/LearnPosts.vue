@@ -289,7 +289,6 @@ export default {
         this.date = date.formatDate(td, 'YYYY-MM-DD');
         this.time = date.formatDate(td, 'HH:mm:ss');
         this.text = res.data.postText;
-        // this.creator = res.data.postCreator;
         return this.$axios.get(`/api/user/` + res.data.postCreator);
       })
       .catch(() => {

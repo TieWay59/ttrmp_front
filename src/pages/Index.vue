@@ -15,7 +15,7 @@
       <q-separator/>
 
       <q-card-section>
-        <router-link to="/learn">go to learn</router-link>
+<!--        <router-link to="/learn">go to learn</router-link>-->
         <p v-for="d in description" :key="d">
           {{ d }}
         </p>

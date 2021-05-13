@@ -1,6 +1,6 @@
 <template>
-  <q-item dark clickable v-ripple>
-    <q-menu>
+  <q-item dark clickable v-ripple @click="avatarState===false?$router.push('/login'):0">
+    <q-menu v-if="avatarState">
       <div class="row no-wrap q-pa-md">
         <div class="column">
           <div class="text-body1">
@@ -43,8 +43,8 @@
       <q-avatar rounded size="36px">
         <q-img src="https://cdn.quasar.dev/img/boy-avatar.png"/>
       </q-avatar>
-
     </q-item-section>
+
     <q-item-section v-else side>
       <q-avatar rounded size="36px">
         <q-icon name="account_circle" size="30px"></q-icon>
@@ -55,6 +55,7 @@
       <q-item-label>伍泰炜</q-item-label>
       <q-item-label caption>Administrator</q-item-label>
     </q-item-section>
+
     <q-item-section v-else>
       <q-item-label>未登录</q-item-label>
       <q-item-label caption>请登录账号</q-item-label>
@@ -66,14 +67,15 @@
 <script>
 export default {
   name: "UserAvatar",
-  data() {
-    return {
-      avatarState: true
+
+  computed: {
+    avatarState() {
+      return this.$store.state.isLogin;
     }
   },
   methods: {
     switchAvatar() {
-      this.avatarState = !this.avatarState;
+      this.$store.commit('login_out');
     }
   }
 }
