@@ -25,7 +25,7 @@
       </q-card-section>
 
       <q-card-section class="row justify-center col-lg-7 col-12">
-        <q-btn push class="q-mr-sm" icon-right="login" color="primary">登录&nbsp;&nbsp;</q-btn>
+        <q-btn push class="q-mr-sm" icon-right="login" color="primary" @click="login()">登录&nbsp;&nbsp;</q-btn>
         <q-btn push class="q-mr-sm" icon-right="accessibility_new" to="/register">注册&nbsp;&nbsp;</q-btn>
         <q-btn push icon-right="help">忘记密码&nbsp;&nbsp;</q-btn>
       </q-card-section>
@@ -46,6 +46,21 @@ export default {
     return {
       username: null,
       password: null
+    }
+  },
+  methods: {
+    login() {
+      if (this.$store.state.isLogin === false
+        && this.username === this.$store.state.username
+        && this.password === this.$store.state.password) {
+        this.$store.commit('login_out');
+        this.$router.back();
+      } else {
+        this.$q.dialog({
+          title: '注意',
+          message: `账号不存在或密码不正确`
+        });
+      }
     }
   }
 }

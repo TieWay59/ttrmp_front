@@ -21,8 +21,8 @@ export default function (/* { ssrContext } */) {
     // },
     state: {
       isLogin: false,
-      username: '伍泰炜',
-      passward: '123456'
+      username: 'tieway59@foxmail.com',
+      password: '123456'
     },
     mutations: {
       login_out(state) {
