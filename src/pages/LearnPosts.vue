@@ -4,6 +4,7 @@
       <q-card-section class="row justify-between">
         <q-breadcrumbs-customed class="col-10" :page_dir="page_dir"></q-breadcrumbs-customed>
         <q-btn
+          v-if="this.$store.state.isLogin"
           label="编辑"
           flat
           color="primary"
@@ -37,7 +38,7 @@
     <!--      </q-card-section>-->
     <!--    </q-card-customed>-->
 
-    <q-card-customed>
+    <q-card-customed v-if="this.$route.params.id === '1' ">
       <q-card-section>
         <q-media-player
           type="video"
@@ -129,10 +130,10 @@
         </q-item>
       </q-card-section>
 
-
       <q-separator/>
+
       <q-card-section>
-        <q-list>
+        <q-list v-if="this.$route.params.id === '1' ">
           <q-item v-for="c in getComments" :key="c.id">
             <q-item-section avatar top>
               <q-avatar rounded size="xl">

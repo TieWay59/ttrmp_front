@@ -1,6 +1,9 @@
 <template>
   <profile-layout>
-    <post-list page_size="5" filter_author="tieway59" :is_clickable="false">
+    <q-card-customed class="q-pa-sm">
+      <q-btn flat>创建新帖</q-btn>
+    </q-card-customed>
+    <post-list page_size="5" filter_author="伍泰炜" :is_clickable="false">
       <template slot="button">
         <q-item-section side>
           <q-btn-group flat>
@@ -11,16 +14,18 @@
         </q-item-section>
       </template>
     </post-list>
+
   </profile-layout>
 </template>
 
 <script>
 import ProfileLayout from "pages/ProfileLayout";
 import PostList from "pages/PostList";
+import QCardCustomed from "components/QCardCustomed";
 
 export default {
   name: "ProfilePosts",
-  components: {PostList, ProfileLayout}
+  components: {QCardCustomed, PostList, ProfileLayout}
 }
 </script>
 

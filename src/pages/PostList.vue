@@ -1,7 +1,7 @@
 <template>
   <q-card-customed>
     <q-card-section>
-      <div class="text-h6">专题</div>
+      <div class="text-h6">专题帖子</div>
     </q-card-section>
 
     <q-separator/>
@@ -9,11 +9,11 @@
     <q-card-section>
       <q-list separator>
         <q-item
-          v-for="post in page_posts"
-          :key="post.id"
-          :to='is_clickable? ("/learn/posts/"+post.id): null'
-          :v-ripple="is_clickable"
-          :clickable="is_clickable"
+            v-for="post in page_posts"
+            :key="post.id"
+            :to='is_clickable? ("/learn/posts/"+post.id): null'
+            :v-ripple="is_clickable"
+            :clickable="is_clickable"
         >
           <q-item-section avatar top>
             <q-avatar icon="feed" color="primary" text-color="white"/>
@@ -34,13 +34,13 @@
 
     <q-card-section class="q-pa-lg flex flex-center">
       <q-pagination
-        v-model="page_current"
-        :max="Math.ceil(author_filtered_posts.length / page_size)"
-        :max-pages="6"
-        boundary-numbers
-        direction-links
-        push
-        color="primary"></q-pagination>
+          v-model="page_current"
+          :max="Math.ceil(author_filtered_posts.length / page_size)"
+          :max-pages="6"
+          boundary-numbers
+          direction-links
+          push
+          color="primary"></q-pagination>
     </q-card-section>
   </q-card-customed>
 </template>
@@ -53,13 +53,13 @@ export default {
   data() {
     return {
       posts: [
-        {id: 1, title: "专题1: 计算几何相关算法", author: "tieway59"},
-        {id: 2, title: "集训专题2: 图的连通性算法"},
-        {id: 3, title: "集训专题3: 图的连通性算法"},
-        {id: 4, title: "集训专题4: 图的连通性算法"},
-        {id: 5, title: "集训专题5: 图的连通性算法"},
-        {id: 6, title: "集训专题6: 图的连通性算法"},
-        {id: 7, title: "集训专题7: 图的连通性算法"},
+        {id: 1, title: "时间复杂度与空间复杂度", author: "伍泰炜"},
+        {id: 2, title: "test_json", author: "伍泰炜"},
+        {id: 3, title: "test_c++", author: "伍泰炜"},
+        {id: 4, title: "super_log（幂塔取模 欧拉降幂）", author: "JK Chen"},
+        {id: 5, title: "The Nth Item（线性方程O(1)求第n项）", author: "JK Chen"},
+        {id: 6, title: "Enju With math problem（欧拉函数 区间匹对）", author: "JK Chen"},
+        {id: 7, title: "Mobilization（想法 数学）", author: "JK Chen"},
         {id: 8, title: "集训专题8: 图的连通性算法"},
         {id: 9, title: "集训专题9: 图的连通性算法"},
         {id: 10, title: "集训专题10: 图的连通性算法"},
@@ -160,9 +160,9 @@ export default {
     },
     page_posts() {
       return this.author_filtered_posts
-        .filter((_, i) => {
-          return Math.floor(i / this.page_size) + 1 === this.page_current;
-        });
+          .filter((_, i) => {
+            return Math.floor(i / this.page_size) + 1 === this.page_current;
+          });
     }
   }
 }
