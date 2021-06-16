@@ -32,7 +32,7 @@
       </q-card-section>
     </q-card-customed>
 
-    <post-list page_size="5" filter_author="tieway59"></post-list>
+    <post-list page_size="5" filter_author="伍泰炜"></post-list>
 
     <q-card-customed>
       <q-card-section class="text-h6">

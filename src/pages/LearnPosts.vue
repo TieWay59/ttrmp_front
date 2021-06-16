@@ -138,7 +138,7 @@
             <q-item-section avatar top>
               <q-avatar rounded size="xl">
                 <q-img
-                  :src="c.src? c.src : getPicUrl()"
+                  :src="c.src? c.src : getPicUrl(c.id)"
                   ratio="1"
                   transition="rotate"
                 >
@@ -262,8 +262,8 @@ export default {
     }
   },
   methods: {
-    getPicUrl() {
-      return 'https://placeimg.com/150/150/nature?t=' + Math.random();
+    getPicUrl(i) {
+      return 'https://placeimg.com/150/150/nature?t=' + 1000 + i;
     },
     appendComment() {
       this.comments.push({
